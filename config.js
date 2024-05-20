@@ -1,6 +1,5 @@
 const fs = require('fs-extra')
 if (fs.existsSync('.env')) require('dotenv').config({ path: __dirname+'/.env' })
-const keep_alive = require('./keep_alive.js')
 
 //═══════[Required Variables]════════\\
 global.audio= "" ;  
