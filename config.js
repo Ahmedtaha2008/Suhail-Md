@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 if (fs.existsSync('.env')) require('dotenv').config({ path: __dirname+'/.env' })
-
+const keep_alive = require('./keep_alive.js')
 
 //═══════[Required Variables]════════\\
 global.audio= "" ;  
@@ -47,7 +47,7 @@ global.waPresence= process.env.WAPRESENCE ||  "recording" ; // 'unavailable' | '
 
 
 //========================= [ AUTO READ MSGS & CMDS ] =========================\\
-global.readcmds = process.env.READ_COMMAND || "false"
+global.readcmds = process.env.READ_COMMAND || "true"
 global.readmessage = process.env.READ_MESSAGE || "false"
 global.readmessagefrom = process.env.READ_MESSAGE_FROM || "null,201013032037";
 
@@ -91,7 +91,7 @@ module.exports = {
   HEROKU: process.env.HEROKU_APP_NAME && process.env.HEROKU_API_KEY,
 
 
-  WORKTYPE: process.env.WORKTYPE || process.env.MODE|| "private",
+  WORKTYPE: process.env.WORKTYPE || process.env.MODE|| "public",
   LANG: ( process.env.THEME ||  "SUHAIL"  ).toUpperCase(),
 
 
